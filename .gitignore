@@ -111,7 +111,6 @@ venv.bak/
 .idea/workspace.xml
 app/__pycache__/
 app/cache01/__pycache__/
-app/static/
 app/user/__pycache__/
 migrations/__pycache__/
 migrations/versions/__pycache__/
