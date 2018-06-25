@@ -2,6 +2,7 @@ from flask import Flask
 
 from app.cache01.views import cache_blue
 from app.ext import init_ext
+from app.upload.views import upload_blue
 from app.user.views import user_blue
 
 app = Flask(__name__)
@@ -17,3 +18,4 @@ def create_app():
 def register_blue():
     app.register_blueprint(cache_blue, url_prefix='/cache')
     app.register_blueprint(user_blue, url_prefix='/user')
+    app.register_blueprint(upload_blue, url_prefix='/upload')
