@@ -9,6 +9,7 @@
         $(function () {
             /**
              * 参数
+             *
              */
             $('#upload_btn').click(function () {
                 let formdata = new FormData($('#form')[0]);
@@ -24,16 +25,16 @@
                     contentType: false,
                     //  成功的回调方法
                     success: function (result) {
-                        $('#wrap').append($('<img>').attr('src', result.url))
+                        $('#wrap').append($('<img>').attr('src', result.url[0]))
                     },
                     error: function (status) {
                     },
                     complete: function () {
                     }
-
                 };
-                $.ajax(settings)
-                return false
+                $.ajax(settings);
+                //阻止form自动提交事件
+                return false;
             })
         })
     </script>
@@ -41,7 +42,7 @@
 <body>
 
 <form id="form" action="{{ url_for('upload.upload_img') }}" method="post" enctype="multipart/form-data">
-    <input type="file" id="file" name="img">
+    <input type="file" multiple name="files">
     <input type="button" id="upload_btn" value="上传">
 </form>
 <div id="wrap">
